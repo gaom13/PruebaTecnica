@@ -25,6 +25,8 @@ builder.Services.AddDbContext<LabDevContext>(options =>
 builder.Services.AddScoped<IClienteService, ClienteService>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 
+builder.Services.AddAutoMapper(typeof(Program));
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", builder =>
