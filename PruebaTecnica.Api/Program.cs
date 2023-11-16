@@ -25,6 +25,9 @@ builder.Services.AddDbContext<LabDevContext>(options =>
 builder.Services.AddScoped<IClienteService, ClienteService>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 
+builder.Services.AddScoped<IProductoService, ProductoService>();
+builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
+
 builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddCors(options =>
