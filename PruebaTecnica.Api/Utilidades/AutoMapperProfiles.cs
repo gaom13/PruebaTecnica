@@ -10,6 +10,8 @@ namespace PruebaTecnica.Api.Utilidades
         {
             CreateMap<TblCliente, TblClienteDTO>().ReverseMap();
             CreateMap<CatTipoCliente, CatTipoClienteDTO>().ReverseMap();
+
+            CreateMap<CatProducto, CatProductoDTO>().ReverseMap();
         }
     }
 }
