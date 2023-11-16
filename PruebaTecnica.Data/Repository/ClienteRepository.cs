@@ -26,18 +26,11 @@ namespace PruebaTecnica.Data.Repository
 
         public async Task<List<TblClienteDTO>> GetClientes()
         {
-            try
-            {
-                var clientes = await labDevContext.TblClientes
+            var clientes = await labDevContext.TblClientes
                     .Include(x => x.IdTipoClienteNavigation)
                     .ToListAsync();
-                var clientesDTO = mapper.Map<List<TblClienteDTO>>(clientes);
-                return clientesDTO;
-            }
-            catch (Exception ex)
-            {
-                return new List<TblClienteDTO>();
-            }
+            var clientesDTO = mapper.Map<List<TblClienteDTO>>(clientes);
+            return clientesDTO;
         }
     }
 }
