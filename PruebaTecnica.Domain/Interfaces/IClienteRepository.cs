@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PruebaTecnica.Domain.DTOs;
 using PruebaTecnica.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,6 @@ namespace PruebaTecnica.Domain.Interfaces
 {
     public interface IClienteRepository
     {
-        Task<List<TblCliente>> GetClientes();
+        Task<List<TblClienteDTO>> GetClientes();
     }
 }

@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PruebaTecnica.Data.Context;
+using PruebaTecnica.Domain.DTOs;
 using PruebaTecnica.Domain.Interfaces;
 using PruebaTecnica.Domain.Models;
 using System;
@@ -14,21 +16,27 @@ namespace PruebaTecnica.Data.Repository
     public class ClienteRepository : IClienteRepository
     {
         private readonly LabDevContext labDevContext;
+        private readonly IMapper mapper;
 
-        public ClienteRepository(LabDevContext labDevContext)
+        public ClienteRepository(LabDevContext labDevContext, IMapper mapper)
         {
             this.labDevContext = labDevContext;
+            this.mapper = mapper;
         }
 
-        public async Task<List<TblCliente>> GetClientes()
+        public async Task<List<TblClienteDTO>> GetClientes()
         {
             try
             {
-                return await labDevContext.TblClientes.ToListAsync();
+                var clientes = await labDevContext.TblClientes
+                    .Include(x => x.IdTipoClienteNavigation)
+                    .ToListAsync();
+                var clientesDTO = mapper.Map<List<TblClienteDTO>>(clientes);
+                return clientesDTO;
             }
             catch (Exception ex)
             {
-                return new List<TblCliente>();
+                return new List<TblClienteDTO>();
             }
         }
     }

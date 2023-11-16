@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PruebaTecnica.Application.Interfaces;
+using PruebaTecnica.Domain.DTOs;
 using PruebaTecnica.Domain.Interfaces;
 using PruebaTecnica.Domain.Models;
 using System;
@@ -19,7 +20,7 @@ namespace PruebaTecnica.Application.Services
             this.clienteRepository = clienteRepository;
         }
 
-        public async Task<List<TblCliente>> GetClientes()
+        public async Task<List<TblClienteDTO>> GetClientes()
         {
             return await clienteRepository.GetClientes();
         }
