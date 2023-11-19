@@ -1,0 +1,21 @@
+<p>
+    <mat-toolbar color="primary">
+        <button mat-icon-button class="" aria-label="Example icon-button with menu icon"
+                [routerLink]="[crearFactura]">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>Prueba .net</span>
+        <span class="example-spacer"></span>
+
+        <button mat-raised-button [routerLink]="[crearFactura]">
+            <mat-icon>add</mat-icon>
+            Crear Factura
+        </button>
+
+        <button mat-raised-button [routerLink]="[buscarFactura]" class="ml-2">
+            <mat-icon>manage_search</mat-icon>
+            Buscar Factura
+        </button>
+
+    </mat-toolbar>
+</p>

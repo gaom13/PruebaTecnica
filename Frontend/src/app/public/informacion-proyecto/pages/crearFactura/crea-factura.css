@@ -1,0 +1,4 @@
+
+::ng-deep .p-dropdown {
+  width: 350px; /* Ancho fijo deseado */
+}
